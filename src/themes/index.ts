@@ -4,6 +4,7 @@ import { DEFAULT_THEME_OPTIONS } from './_base/theme';
 import appletv from './appletv';
 import blueradiance from './blueradiance';
 import dark from './dark';
+import goon from './goon';
 import light from './light';
 import purplehaze from './purplehaze';
 import wmc from './wmc';
@@ -15,12 +16,13 @@ const DEFAULT_THEME = createTheme({
         colorSchemeSelector: '[data-theme="%s"]',
         disableCssColorScheme: true
     },
-    defaultColorScheme: 'dark',
+    defaultColorScheme: 'goon',
     ...DEFAULT_THEME_OPTIONS,
     colorSchemes: {
         appletv,
         blueradiance,
         dark,
+        goon,
         light,
         purplehaze,
         wmc

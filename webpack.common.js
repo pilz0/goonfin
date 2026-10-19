@@ -48,6 +48,10 @@ const config = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
+        alias: {
+            // goonfin branding replaces the jellyfin logos
+            '@jellyfin/ux-web': path.resolve(__dirname, 'branding')
+        },
         modules: [
             path.resolve(__dirname, 'src'),
             path.resolve(__dirname, 'node_modules')
@@ -86,7 +90,7 @@ const config = {
                 'robots.txt',
                 {
                     from: 'touchicon*.png',
-                    context: path.resolve(__dirname, 'node_modules/@jellyfin/ux-web/favicons'),
+                    context: path.resolve(__dirname, 'branding/favicons'),
                     to: 'favicons'
                 },
                 ...Assets.map(asset => {

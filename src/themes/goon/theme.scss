@@ -1,0 +1,153 @@
+/* Neon pink on near-black */
+$pink: #ff2a9d;
+$purple: #8a2be2;
+$bg: #0a0008;
+$paper: #160012;
+$glow: 0 0 0.6em rgba(255, 42, 157, 0.7);
+
+$header-gradient: linear-gradient(90deg, #0a0008 0%, #2a0020 35%, #1e0636 65%, #0a0008 100%);
+
+@use "../_base/theme" with (
+    $dark: true,
+    $rounded-person-cards: true,
+
+    $background-default: $bg,
+    $background-defaultImage: radial-gradient(ellipse at top, rgba(255, 42, 157, 0.18), transparent 60%),
+    $background-paper: $paper,
+    $primary-main: $pink,
+    $primary-dark: #c4006f,
+    $primary-light: #ff6bbd,
+    $primary-hover: rgba(255, 42, 157, 0.2),
+    $primary-contrastText: #fff,
+    $secondary-main: $purple,
+    $text-primary: #fff,
+    $text-secondary: rgba(255, 220, 240, 0.72),
+    $action-focus: rgba(255, 42, 157, 0.25),
+    $action-hover: rgba(255, 42, 157, 0.12),
+    $divider: rgba(255, 42, 157, 0.25),
+
+    $appBar-defaultBg: $bg,
+    $appBar-gradient: $header-gradient,
+    $appBar-transparentBg: rgba(10, 0, 8, 0.55),
+    $surface-overlay: rgba(22, 0, 18, 0.85),
+    $filledInput-bg: rgba(255, 42, 157, 0.08),
+    $filledInput-borderColor: rgba(255, 42, 157, 0.3),
+    $card-borderRadius: 0.6em,
+    $alert-infoFilledBg: $purple,
+    $alert-infoFilledColor: #fff,
+    $button-inheritContainedBg: rgba(255, 42, 157, 0.15),
+    $button-inheritContainedHoverBg: rgba(255, 42, 157, 0.35),
+    $snackbarContent-bg: #2a0020,
+    $snackbarContent-color: #fff
+);
+
+::selection {
+    background: $pink;
+    color: #fff;
+}
+
+/* Logo throbs gently */
+@keyframes goon-pulse {
+    0%,
+    100% { filter: drop-shadow(0 0 0.15em rgba(255, 42, 157, 0.5)); }
+    50% { filter: drop-shadow(0 0 0.6em rgba(255, 42, 157, 0.95)); }
+}
+
+.pageTitleWithDefaultLogo {
+    animation: goon-pulse 2.4s ease-in-out infinite;
+}
+
+.sectionTitle,
+.itemName {
+    text-shadow: $glow;
+}
+
+/* Cards glow on hover */
+.cardBox,
+.cardImageContainer {
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .card:hover .cardBox:not(.visualCardBox),
+    .card:hover .cardImageContainer {
+        box-shadow: 0 0 1em rgba(255, 42, 157, 0.75);
+    }
+
+    .paper-icon-button-light:hover:not(:disabled) {
+        color: $pink;
+        filter: drop-shadow($glow);
+    }
+}
+
+.itemProgressBarForeground,
+.playedIndicator,
+.countIndicator {
+    background: linear-gradient(90deg, $pink, $purple);
+    box-shadow: $glow;
+}
+
+.button-submit,
+.raised.button-submit {
+    background: linear-gradient(90deg, $pink, $purple);
+    color: #fff;
+    box-shadow: $glow;
+}
+
+.emby-tab-button-active,
+.emby-tab-button.show-focus:focus,
+.navMenuOption-selected {
+    color: $pink !important;
+    text-shadow: $glow;
+}
+
+.navMenuOption-selected {
+    background: rgba(255, 42, 157, 0.18) !important;
+}
+
+.mainDrawer,
+.appfooter {
+    background: rgba(16, 0, 13, 0.92);
+}
+
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    .appfooter {
+        background: rgba(16, 0, 13, 0.7);
+        backdrop-filter: blur(20px);
+    }
+}
+
+.emby-checkbox:checked + span + .checkboxOutline {
+    background-color: $pink;
+    border-color: $pink;
+}
+
+.defaultCardBackground1 { background-color: #c4006f; }
+.defaultCardBackground2 { background-color: #8a2be2; }
+.defaultCardBackground3 { background-color: #5b0a4a; }
+.defaultCardBackground4 { background-color: #ff6bbd; }
+.defaultCardBackground5 { background-color: #3d0f6e; }
+
+.alphaPickerButton-selected {
+    color: $pink;
+}
+
+.layout-desktop,
+.scrollY {
+    scrollbar-width: thin;
+    scrollbar-color: $pink rgba(42, 0, 32, 0.6);
+}
+
+::-webkit-scrollbar-thumb {
+    background: $pink;
+    border-radius: 1em;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: rgba(42, 0, 32, 0.6);
+}
+
+.mediaInfoOfficialRating {
+    border-color: $pink;
+    color: $pink;
+}
